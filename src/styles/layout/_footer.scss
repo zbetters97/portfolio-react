@@ -1,0 +1,38 @@
+@use "../abstracts"as *;
+
+.scroll-to-top {
+  font-size: 1.2rem;
+  text-decoration: none;
+  color: $color-accent;
+  background: $color-bg-accent;
+  border: none;
+  border-radius: 100%;
+  padding: 0.3rem;
+  width: 40px;
+  height: 40px;
+  @include flexbox(row, center, center);
+  cursor: pointer;
+  transition-duration: 200ms;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+footer {
+  @include flexbox(column, space-between, flex-start, 2rem);
+
+  .footer-info {
+    font-size: 0.9rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  footer {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1200px;
+    grid-column: span 2 / span 2;
+    flex-direction: row;
+  }
+}
