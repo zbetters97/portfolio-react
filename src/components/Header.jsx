@@ -5,20 +5,25 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState(null);
   const sections = useRef([]);
 
-  const handleScroll = () => {
+  function handleScroll() {
 
     let newActiveSection = null;
 
+    // LOOP THROUGH EACH HOME SECTION
     sections.current.forEach((section) => {
 
+      // GET SIZE OF SECTION
       const sectionTop = section.offsetTop;
       const sectionBottom = sectionTop + section.offsetHeight;
 
+      // GET SIZE OF SCREEN
       const viewportTop = window.scrollY;
       const viewportBottom = viewportTop + window.innerHeight;
 
+      // IF SECTION WITHIN SCREEN BOUNDARIES
       const isOnScreen = sectionBottom > viewportTop && sectionTop < viewportBottom;
 
+      // SET ACTIVE IF NO CURRENT ACTIVE
       if (isOnScreen && newActiveSection === null) {
         newActiveSection = section.id;
       }
@@ -27,11 +32,14 @@ export default function Header() {
     setActiveSection(newActiveSection);
   }
 
+  // RUN ON FIRST LOAD
   useEffect(() => {
 
-    sections.current = document.querySelectorAll("[data-section");
+    // ALL ELEMENTS CONTAINING data-section DATA
+    sections.current = document.querySelectorAll("[data-section]");
     window.addEventListener("scroll", handleScroll);
 
+    // CLEAN UP IF UNMOUNTED
     return () => {
       window.removeEventListener("scroll", handleScroll);
     }

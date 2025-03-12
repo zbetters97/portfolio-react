@@ -1,6 +1,6 @@
 export default function Footer() {
 
-  const goToTop = () => {
+  function goToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
