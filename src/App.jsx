@@ -1,15 +1,13 @@
-import Header from "./components/Header.jsx"
-import Layout from "./components/Layout.jsx"
-import Footer from "./components/Footer.jsx"
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Layout from "./components/Layout/Layout.jsx";
 
-function App() {
-  return (
-    <>
-      <Header />
-      <Layout />
-      <Footer />
-    </>
-  )
+export default function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+    },
+  ]);
+
+  return <RouterProvider router={router} />;
 }
-
-export default App
