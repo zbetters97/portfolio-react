@@ -15,6 +15,15 @@ export default function ProjectsSection() {
 
       <div className="project-contents">
         <ProjectCard
+          imgUrl="/tracklist.png"
+          imgAlt="tracklist project"
+          url="https://tracklist-zb.netlify.app/"
+          title="TrackList"
+          description="A custom-built React.js application designed for reviewing and discussing music. It highlights key development concepts such as responsive UI with React components and SCSS, Spotify integration via the Spotify Web API, and user authentication powered by Firebase."
+          tags={["React.JS", "Vite", "SCSS", "Spotify API", "Firebase"]}
+        />
+
+        <ProjectCard
           imgUrl="/reach.png"
           imgAlt="reach project"
           url="https://reachworshipde.netlify.app/"
